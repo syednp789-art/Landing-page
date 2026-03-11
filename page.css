@@ -1,0 +1,113 @@
+/* 1. General Reset */
+* {
+    margin: 0; padding: 0; box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary: #1e272e;
+    --accent: #0984e3;
+    --navy: #000080;
+    --lavender: #E6E6FA;
+}
+
+body {
+    background-color: var(--navy);
+    overflow-x: hidden;
+}
+
+/* 2. Interactive Reveal Classes */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3. Navigation */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 10%;
+    background: var(--lavender);
+    position: sticky; top: 0; z-index: 1000;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.navbar ul { display: flex; list-style: none; }
+.navbar ul li { margin-left: 30px; }
+.navbar a {
+    text-decoration: none; color: var(--navy);
+    font-weight: bold; position: relative;
+}
+
+/* Underline Animation */
+.navbar a::after {
+    content: ''; position: absolute; width: 0; height: 2px;
+    bottom: -5px; left: 0; background: var(--accent);
+    transition: 0.3s;
+}
+.navbar a:hover::after { width: 100%; }
+
+/* 4. Hero Section */
+.hero {
+    display: flex; align-items: center;
+    padding: 100px 10%;
+    background: linear-gradient(135deg, #f5f6fa 70%, var(--lavender) 100%);
+    gap: 50px;
+    clip-path: polygon(0 0, 100% 0, 100% 90%, 0 100%);
+}
+
+.hero-image img {
+    width: 100%; max-width: 500px;
+    border-radius: 20px;
+    transition: 0.5s;
+    animation: float 3s ease-in-out infinite;
+}
+
+.hero-image img:hover {
+    transform: scale(1.05) rotate(2deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+}
+
+/* 5. Feature Cards */
+.features {
+    display: flex; gap: 30px; padding: 80px 10%;
+}
+
+.card {
+    background: white; padding: 40px;
+    border-radius: 15px; flex: 1;
+    text-align: center; transition: 0.4s;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-20px);
+    box-shadow: 0 15px 30px rgba(9, 132, 227, 0.4);
+    border: 2px solid var(--accent);
+}
+
+/* 6. Animations */
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+}
+
+.cta-btn {
+    background: var(--accent); color: white;
+    padding: 15px 35px; border: none; border-radius: 50px;
+    font-weight: bold; cursor: pointer; transition: 0.3s;
+}
+
+.cta-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px var(--accent);
+}
+
+footer { text-align: center; padding: 50px; color: white; }
